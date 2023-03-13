@@ -10,7 +10,6 @@
 
 namespace ais1002 {
 
-
     template<typename T>
     class singly_linked_list {
 
@@ -32,14 +31,21 @@ namespace ais1002 {
         }
 
         const T &operator[](size_t index) const {
+
             return operator[](index);
         }
 
-        void addFirst(const T& data) { insert(0, data); }
+        void clear() {
+            for (unsigned i = size_; i > 0; i--) {
+                removeLast();
+            }
+        }
 
-        void addLast(const T& data) { insert(size_, data); }
+        void addFirst(const T &data) { insert(0, data); }
 
-        void insert(size_t index, const T& data) {
+        void addLast(const T &data) { insert(size_, data); }
+
+        void insert(size_t index, const T &data) {
             if (index > size_) {
                 throw std::runtime_error("Index out of bounds");
             }
@@ -47,7 +53,7 @@ namespace ais1002 {
             node<T> *current = head_;
             node<T> *prev = nullptr;
 
-            for (int i = 0; i < index; i++) {
+            for (unsigned i = 0; i < index; ++i) {
                 prev = current;
                 current = current->next_;
             }
@@ -60,10 +66,11 @@ namespace ais1002 {
                 prev->next_ = insert;
             }
 
-            size_++;
+            ++size_;
         }
 
         T remove(size_t index) {
+
             if (index >= size_) {
                 throw std::runtime_error("Index out of bounds");
             }
@@ -85,7 +92,7 @@ namespace ais1002 {
 
             delete current;
 
-            size_--;
+            --size_;
 
             return std::move(data);
         }
@@ -119,7 +126,6 @@ namespace ais1002 {
             node<T> *next_ = nullptr;
 
             explicit node(T data) : data_(std::move(data)) {}
-
         };
 
         node<T> *head_ = nullptr;

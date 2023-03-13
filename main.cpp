@@ -10,11 +10,11 @@ int main() {
     list.addLast("Per");
     list.addLast("Conny");
 
-    std::cout << list << std::endl;
+    std::cout << "Content of list: " << list << std::endl;
 
-    std::cout << list.removeFirst() << std::endl;
+    std::cout << "Result of removeFirst: " << list.removeFirst() << std::endl;
 
-    std::cout << list << std::endl;
+    std::cout << "Content of list: " << list << std::endl;
 
     list.insert(0, "Olav");
 
@@ -22,7 +22,7 @@ int main() {
 
     list.addFirst("Ole");
 
-    std::cout << list << std::endl;
+    std::cout << "Content of list: " << list << std::endl;
 
     return 0;
 }
