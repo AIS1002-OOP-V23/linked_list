@@ -118,6 +118,10 @@ namespace ais1002 {
         template<class E>
         friend std::ostream &operator<<(std::ostream &, const singly_linked_list<E> &);
 
+        ~singly_linked_list() {
+            clear();
+        }
+
     private:
         template<typename T>
         struct node {
