@@ -36,8 +36,9 @@ namespace ais1002 {
         }
 
         void clear() {
-            for (unsigned i = size_; i > 0; i--) {
-                removeLast();
+            auto size = size_;
+            for (unsigned i = 0; i < size; i++) {
+                removeFirst();
             }
         }
 
