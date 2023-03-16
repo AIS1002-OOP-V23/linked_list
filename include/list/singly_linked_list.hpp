@@ -124,13 +124,13 @@ namespace ais1002 {
         }
 
     private:
-        template<typename T>
+        template<typename E>
         struct node {
 
-            T data_;
-            node<T> *next_ = nullptr;
+            E data_;
+            node<E> *next_ = nullptr;
 
-            explicit node(T data) : data_(std::move(data)) {}
+            explicit node(E data) : data_(std::move(data)) {}
         };
 
         node<T> *head_ = nullptr;
